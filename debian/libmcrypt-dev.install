@@ -1,0 +1,6 @@
+usr/lib/libmcrypt.la
+usr/lib/libmcrypt.a
+usr/lib/libmcrypt.so
+usr/include
+usr/bin/libmcrypt-config
+usr/share/aclocal/libmcrypt.m4

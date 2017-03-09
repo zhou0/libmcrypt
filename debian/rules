@@ -1,0 +1,11 @@
+#!/usr/bin/make -f
+
+%:
+	dh "$@" --with autoreconf
+
+override_dh_installman:
+	dh_installman
+	mv debian/libmcrypt-dev/usr/share/man/man3/mcrypt.3 debian/libmcrypt-dev/usr/share/man/man3/libmcrypt.3
+
+override_dh_auto_configure:
+	dh_auto_configure -- --enable-static

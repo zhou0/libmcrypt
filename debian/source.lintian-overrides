@@ -1,0 +1,8 @@
+# upstream source contains these files, but in debian/rules clean they
+# got deleted, so this is OK
+libmcrypt source: configure-generated-file-in-source config.status
+libmcrypt source: configure-generated-file-in-source config.log
+
+# I want to run uscan for myself too, so I can't depend on the qa
+# redirector.  This solution works without any kind of redirectors.
+libmcrypt source: debian-watch-file-should-use-sf-redirector line 2
