@@ -5,4 +5,4 @@ compiler:
   - gcc
 language: c
 sudo: required
-
+./configure && make && sudo make install
