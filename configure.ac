@@ -13,7 +13,6 @@ LIBMCRYPT_MOST_RECENT_INTERFACE=8
 LIBMCRYPT_CURRENT_INTERFACE_IMPLEMENTATION_NUMBER=$LIBMCRYPT_MICRO_VERSION
 LIBMCRYPT_OLDEST_INTERFACE=4
 
-AC_CANONICAL_TARGET
 AM_INIT_AUTOMAKE
 AM_CONFIG_HEADER([config.h])
 
@@ -37,14 +36,19 @@ case "$host_os" in
                 LDFLAGS="$LDFLAGS -no-undefined"
                 AC_DEFINE( WIN32, 1, [whether win32 environment])
         ;;
-        cygwin*) 
+        *cygwin*) 
                 LDFLAGS="$LDFLAGS -enable-runtime-pseudo-reloc -no-undefined"
-                AC_DEFINE( WIN32, 1, [whether win32 environment])
+                AC_DEFINE( WIN32, 1, [whether cygwin environment])
         ;;
-	mingw*)
+	*mingw*)
                 LDFLAGS="$LDFLAGS -enable-runtime-pseudo-reloc -no-undefined"
-	        AC_DEFINE( WIN32, 1, [whether win32 environment])
-	;;	
+	        AC_DEFINE( WIN32, 1, [whether mingw environment])
+	;;
+        *msys*)
+                LDFLAGS="$LDFLAGS -enable-runtime-pseudo-reloc -no-undefined"
+                AC_DEFINE( WIN32, 1, [whether msys environment])
+        ;;
+	
 esac
 
 dnl Checks for programs.
@@ -196,7 +200,6 @@ AC_SUBST(LT_CURRENT)
 AC_SUBST(LT_REVISION)
 AC_SUBST(LT_AGE)
 AC_INCLUDES_DEFAULT
-AC_HEADER_DIRENT
 AC_C_INLINE
 AC_C_CONST
 

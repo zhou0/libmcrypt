@@ -10,8 +10,7 @@ libmcrypt_la_SOURCES = mcrypt_extra.c mcrypt.c bzero.c xmemory.c \
 
 libmcrypt_la_LDFLAGS =  -enable-runtime-pseudo-reloc -no-undefined \
 	  -version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE) \
-	  -export-symbols libmcrypt.sym @LIBLTDL@ \
-	  -Wl,--out-implib,libmcrypt.a
+	  -export-symbols libmcrypt.sym @LIBLTDL@ 
 libmcrypt_la_LIBADD = @EXTRA_OBJECTS@
 
 m4datadir = $(datadir)/aclocal
