@@ -1,6 +1,8 @@
+before_install:
+  - chmod u+x ./configure
 compiler:
   - clang
   - gcc
 language: c
 sudo: required
-sh ./configure && make && sudo make install
+
