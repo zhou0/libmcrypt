@@ -4,5 +4,7 @@ compiler:
   - clang
   - gcc
 language: c
+install:
+  - ./configure && make && sudo make install
 sudo: required
-./configure && make && sudo make install
+
